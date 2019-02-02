@@ -2,6 +2,10 @@
   line-height: 2.5;
 }
 
+body {
+  background-color: black;
+}
+
 .strike {
   position: relative;
   display: block;
