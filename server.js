@@ -40,20 +40,6 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
-/*========================= start original listen =========================== */
-// Starting the server, syncing our models ------------------------------------/
-// db.sequelize.sync(syncOptions).then(function() {
-//   app.listen(PORT, function() {
-//     console.log(
-//       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser",
-//       PORT,
-//       PORT
-//     );
-//   });
-// });
-/*========================== end original listen ============================ */
-
-
 /* =================== start new ====================== */
 
 io.on('connection', function(socket){
@@ -92,7 +78,27 @@ io.on('connection', function(socket){
   });
 });
 
-server.listen(5000);
+server.listen(PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser",
+      PORT,
+      PORT
+    );
+  });
 
 /* ==================== end new ======================= */
+
+/*========================= start original listen =========================== */
+// Starting the server, syncing our models ------------------------------------/
+// db.sequelize.sync(syncOptions).then(function() {
+//   app.listen(PORT, function() {
+//     console.log(
+//       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser",
+//       PORT,
+//       PORT
+//     );
+//   });
+// });
+/*========================== end original listen ============================ */
+
 module.exports = app;
