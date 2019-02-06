@@ -1,3 +1,52 @@
+* {
+    outline: none;
+}
+
 .list-group-item {
   line-height: 2.5;
+}
+
+
+td
+{
+    width:100px;
+    height:100px;
+    border: solid 1px white;
+    background-color: black;
+    text-align:center;
+    font-size:48pt;
+}
+
+td:hover
+{
+    background-color: grey;
+    cursor:pointer;
+}
+
+.tile {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.tile:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+
+
+
+
+.tile:active, 
+.tile:focus {
+    outline: none;
+    box-shadow: none;
 }
