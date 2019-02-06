@@ -8,7 +8,7 @@ if (process.env.JAWSDB_URL) {
         host: 'localhost',
         user: 'root',
         password: 'Progress_19',
-        database: 'example_db'
+        database: 'exampledb'
     });
 };
 
