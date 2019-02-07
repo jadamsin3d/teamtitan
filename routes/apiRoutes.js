@@ -9,13 +9,13 @@ module.exports = function(app) {
   });
 
   app.post("/api/postuser", function(req, res) {
-    console.log(req.body);
     db.authTable.create({
       username: req.body.username,
-      security: req.body.security,
+      password: req.body.password,
       email: req.body.email
     })
       .then(function(dbPost) {
+        window.location.href = "/";
         res.json(dbPost);
       });
   });
@@ -34,7 +34,5 @@ module.exports = function(app) {
     ) {
       res.json(dbExample);
     });
-  });
-
-  
+  });  
 };

@@ -1,25 +1,31 @@
 module.exports = function (sequelize, DataTypes) {
   var authTable = sequelize.define("authTable", {
-    username: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      len: [1, 30]
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 30]
+      }
     },
-    security: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      len: [6, 20]
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [6, 20]
+      }
     },
-    email: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      isEmail: true,
-      len: [1]
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true,
+        len: [1]
+      }
     }
   });
 
   return authTable;
-  
+
   // var Tourney = sequelize.define("Tourney", {
   //   name: {
   //     type: DataTypes.STRING,
@@ -57,5 +63,5 @@ module.exports = function (sequelize, DataTypes) {
   //   }
   // });
 
-  // return Tourney;
+  return Tourney;
 };

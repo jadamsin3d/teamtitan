@@ -1,30 +1,30 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
     var url = window.location.search;
 
-    var userName = $(".usernameText");
-    var userEmail = $(".emailText");
-    var userPassword = $(".submittedPassword");
+    var userName = $("#formGroupExampleInput");
+    var userEmail = $("#exampleInputEmail1");
+    var userPassword = $("#exampleInputPassword1");
     var authForm = $(".authForm")
 
-    $(authForm).on("authSubmit", function handleFormSubmit(event) {
+    $(".authSubmit").on("click", function handleFormSubmit(event) {
         event.preventDefault();
-        if(!userName.val().trim()) {
+        if(!userName.val()) {
             alert("Please enter a username.")
             return;
         }
-        else if(!userPassword.val().trim()) {
+        if(!userPassword.val()) {
             alert("Please enter a password")
             return;
         }
-        else if(!userEmail.val().trim()) {
+        if(!userEmail.val()) {
             alert("Please enter an email")
             return;
         }
         
         var newUser = {
             username: userName.val().trim(),
-            security: userPassword.val().trim(),
+            password: userPassword.val().trim(),
             email: userEmail.val().trim()
         }
 
@@ -34,9 +34,13 @@ $(document).ready(function(){
     })
 
     function submitUser(User) {
+        console.log("This is the submitUser function");
         $.post("/api/postuser", User, function() {
-            window.location.href = "/";
-        });
-    }
+            // window.location.href = "/";
+            console.log("posting...")
+        }).then(function() {
+        console.log("Submituser worked")
+        })
+    };
 });
 
