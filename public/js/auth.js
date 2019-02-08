@@ -36,10 +36,10 @@ $(document).ready(function() {
     function submitUser(User) {
         console.log("This is the submitUser function");
         $.post("/api/postuser", User, function() {
-            // window.location.href = "/";
             console.log("posting...")
         }).then(function() {
         console.log("Submituser worked")
+        window.location.href = "/";
         })
     };
 });

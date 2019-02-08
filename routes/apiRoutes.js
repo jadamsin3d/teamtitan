@@ -15,7 +15,6 @@ module.exports = function(app) {
       email: req.body.email
     })
       .then(function(dbPost) {
-        window.location.href = "/";
         res.json(dbPost);
       });
   });
