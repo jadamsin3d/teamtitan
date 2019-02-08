@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Progress_19",
-    "database": "exampledb",
+    "database": "tournament_db",
     "host": "localhost",
     "dialect": "mysql"
   },

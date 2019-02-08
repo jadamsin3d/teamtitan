@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
+
         {{!-- <h2>This is our Home Page!</h2> --}}
 
         {{!-- Commented out Example form and results --}}
@@ -31,7 +32,23 @@
       </div>
     </div>
   </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-8 offset-2">
+          <div class="card mt-4">
+            <div class="card-body">
+              <h5 class="card-title">Create a Tournament!</h5>
+                <input type='text' id='tournament_name_input' placholder='Name your Tournament'>
+                <button id="submit">Make New Tournament</button>
+                <a href="/">← Back To Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

@@ -8,12 +8,15 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 var PORT = process.env.PORT || 5000;
 
+// Sequelize (capital) references the standard library
+var Sequelize = require("sequelize");
+// sequelize (lowercase) references our connection to the DB.
+var sequelize = require("./config/connection.js");
+
 var rooms = 0;
 
 // Middleware
-app.use(express.urlencoded({
-  extended: false
-}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -40,8 +43,12 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
-/* =================== start new ====================== */
+// app.listen(PORT, function() {
+//   console.log("App listening on PORT " + PORT);
+// });
 
+/* =================== start new ====================== */
+/* ================Socket.IO Connection================ */
 io.on('connection', function(socket){
 	console.log('A user connected!'); // We'll replace this with our own events
 
@@ -78,27 +85,27 @@ io.on('connection', function(socket){
   });
 });
 
-server.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser",
-      PORT,
-      PORT
-    );
-  });
-
-/* ==================== end new ======================= */
-
-/*========================= start original listen =========================== */
-// Starting the server, syncing our models ------------------------------------/
-// db.sequelize.sync(syncOptions).then(function() {
-//   app.listen(PORT, function() {
+// server.listen(PORT, function() {
 //     console.log(
 //       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser",
 //       PORT,
 //       PORT
 //     );
 //   });
-// });
+
+/* ==================== end new ======================= */
+
+/*========================= start original listen =========================== */
+// Starting the server, syncing our models ------------------------------------/
+db.sequelize.sync(syncOptions).then(function() {
+  app.listen(PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser",
+      PORT,
+      PORT
+    );
+  });
+});
 /*========================== end original listen ============================ */
 
 module.exports = app;

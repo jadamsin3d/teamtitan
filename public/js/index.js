@@ -1,85 +1,84 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $tournament_name_input = $("#tournament_name_input");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+// or list of tournaments...below
+// var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveTournament: function(example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/new_tournament",
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+  getTournament: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/tournaments",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
+  // deleteExample: function(id) {
+  //   return $.ajax({
+  //     url: "api/examples/" + id,
+  //     type: "DELETE"
+  //   });
+  // }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+// var refreshExamples = function() {
+//   API.getExamples().then(function(data) {
+//     var $examples = data.map(function(example) {
+//       var $a = $("<a>")
+//         .text(example.text)
+//         .attr("href", "/example/" + example.id);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+//       var $li = $("<li>")
+//         .attr({
+//           class: "list-group-item",
+//           "data-id": example.id
+//         })
+//         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+//       var $button = $("<button>")
+//         .addClass("btn btn-danger float-right delete")
+//         .text("ｘ");
 
-      $li.append($button);
+//       $li.append($button);
 
-      return $li;
-    });
+//       return $li;
+//     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
+//     $exampleList.empty();
+//     $exampleList.append($examples);
+//   });
+// };
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var tournament = {
+    tournament_name: $tournament_name_input.val().trim(),
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  if (!tournament) {
+    alert("You must enter a tournament name!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveTournament(tournament).then(function() {
+    console.log('new tournament sent to server');
+    // refreshExamples();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $tournament_name_input.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -96,4 +95,4 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $exampleList.on("click", ".delete", handleDeleteBtnClick);
