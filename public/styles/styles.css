@@ -1,52 +1,45 @@
-* {
-    outline: none;
-}
-
 .list-group-item {
   line-height: 2.5;
 }
 
-
-td
-{
-    width:100px;
-    height:100px;
-    border: solid 1px white;
-    background-color: black;
-    text-align:center;
-    font-size:48pt;
+body {
+  background-color: black;
 }
 
-td:hover
-{
-    background-color: grey;
-    cursor:pointer;
+.strike {
+  position: relative;
+  display: block;
+  cursor: pointer;
 }
 
-.tile {
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: relative;
-    border: none;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow: none;
+.strike:before, .strike:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  top: 50%;
+  margin-top: -0.5px;
+  background: #fff;
 }
 
-.tile:hover {
-    background-color: grey;
-    cursor: pointer;
+.strike:before {
+  left: -2.5px;
+}
+.strike:after {
+  right: 2.5px;
+  background: #fff;
+  transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-
-
-
-
-.tile:active, 
-.tile:focus {
-    outline: none;
-    box-shadow: none;
+.strike:active:before {
+  background: #fff;
+  width: 100%;
+  transition: width 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
+
+.strike:active:after {
+  background: transparent;
+  width: 100%;
+  transition: 0s;
+}
+

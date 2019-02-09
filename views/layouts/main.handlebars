@@ -9,57 +9,34 @@
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Tic Tac Toe-nament</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item strike">
+          <a class="nav-link" href="#">Host a Tournament</a>
+        </li>
+        <li class="nav-link"> | </li>
+        <li class="nav-item strike">
+          <a class="nav-link" href="#">Join a Tournament</a>
+        </li>
+        <li class="nav-link"> | </li>
+        <li class="nav-item strike">
+          <a class="nav-link" href="#">Rankings</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Become the Champion!
+      </span>
+    </div>
+  </nav>
 
   {{{body}}}
-
-  {{!-- Tic Tac Toe Client Side --}}
-  {{!-- <div class="container">
-      <div class="menu">
-            <h1>Tic - Tac - Toe</h1>
-            <h3>How To Play</h3>
-            <ol>
-              <li>Player 1: Create a new game by entering the username</li>
-              <li>Player 2: Enter another username and the room id that is displayed on first window.</li>
-              <li>Click on join game. </li>
-            </ol>
-            <h4>Create a new Game</h4>
-            <input type="text" name="name" id="nameNew" placeholder="Enter your name" required>
-            <button id="new">New Game</button>
-            <br><br>
-            <h4>Join an existing game</h4>
-            <input type="text" name="name" id="nameJoin" placeholder="Enter your name" required>
-            <input type="text" name="room" id="room" placeholder="Enter Game ID" required>
-            <button id="join">Join Game</button>
-      </div>
-      <div class="gameBoard">
-          <h2 id="userHello"></h2>
-          <h3 id="turn"></h3>
-          <table class="center">
-            <tr>
-              <td><button class="tile" id="button_00"></button></td>
-              <td><button class="tile" id="button_01"></button></td>
-              <td><button class="tile" id="button_02"></button></td>
-            </tr>
-            <tr>
-              <td><button class="tile" id="button_10"></button></td>
-              <td><button class="tile" id="button_11"></button></td>
-              <td><button class="tile" id="button_12"></button></td>
-            </tr>
-            <tr>
-              <td><button class="tile" id="button_20"></button></td>
-              <td><button class="tile" id="button_21"></button></td>
-              <td><button class="tile" id="button_22"></button></td>
-            </tr>
-          </table>
-        </div>
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  {{!-- Socket.IO for real time updates to players --}}
-  <script src="/socket.io/socket.io.js"></script>
-  {{!-- Reference to Tic Tac Toe Game JS file--}}
-  <script src="js/game2.js"></script>
-  </div> --}}
-
-<script src="/js/add.js"></script>
+  
 </body>
 
 </html>

@@ -1,54 +1,23 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
+<form class="container loginForm">
+  <div class="row">
+    <div class="col-sm-12">
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Username or Email address</label>
+          <input type="email" class="form-control" id="loginName" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We're going to share your email with every single SPAM service that exists.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+        </div>
 
-        {{!-- <h2>This is our Home Page!</h2> --}}
-
-        {{!-- Commented out Example form and results --}}
-
-        {{!-- <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul> --}}
-
-      </div>
+        <button type="submit" class="btn btn-primary">Log-In</button>
+        <button type="submit" class="btn btn-primary" id='register'>Register</button>
+      </form>
     </div>
   </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-8 offset-2">
-          <div class="card mt-4">
-            <div class="card-body">
-              <h5 class="card-title">Create a Tournament!</h5>
-                <input type='text' id='tournament_name_input' placholder='Name your Tournament'>
-                <button id="submit">Make New Tournament</button>
-                <a href="/">← Back To Home</a>
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
-</div>
-
+</form>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
