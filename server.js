@@ -4,6 +4,9 @@ var exphbs = require("express-handlebars");
 
 var db = require("./models");
 
+// var passport = require("passport")
+//   , LocalStrategy = require("passport-local").Strategy;
+
 var app = express();
 var PORT = process.env.PORT || 3000;
 

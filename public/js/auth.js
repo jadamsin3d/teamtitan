@@ -1,11 +1,8 @@
 $(document).ready(function() {
 
-    var url = window.location.search;
-
     var userName = $("#formGroupExampleInput");
     var userEmail = $("#exampleInputEmail1");
     var userPassword = $("#exampleInputPassword1");
-    var authForm = $(".authForm")
 
     $(".authSubmit").on("click", function handleFormSubmit(event) {
         event.preventDefault();
