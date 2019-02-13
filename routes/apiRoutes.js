@@ -1,14 +1,15 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  // app.get("/api/examples", function(req, res) {
-  //   db.Example.findAll({}).then(function(dbExamples) {
-  //     res.json(dbExamples);
-  //   });
-  // });
+  // find all users
+  app.get("/api/postuser", function(req, res) {
+    db.authTable.findAll({}).then(function(results) {
+      res.json(results);
+    });
+  });
 
   app.post("/api/postuser", function(req, res) {
+    // post a user
     console.log("Attempting to create");
     db.authTable.create({
       username: req.body.username,

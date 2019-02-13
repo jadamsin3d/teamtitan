@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-    var userName = $("#formGroupExampleInput");
-    var userEmail = $("#exampleInputEmail1");
-    var userPassword = $("#exampleInputPassword1");
+    var username = $("#formGroupExampleInput");
+    var email = $("#exampleInputEmail1");
+    var password = $("#exampleInputPassword1");
 
     $(".authSubmit").on("click", function handleFormSubmit(event) {
         event.preventDefault();
@@ -20,9 +20,9 @@ $(document).ready(function() {
         }
         
         var newUser = {
-            username: userName.val().trim(),
-            password: userPassword.val().trim(),
-            email: userEmail.val().trim()
+            username: username.val().trim(),
+            password: password.val().trim(),
+            email: email.val().trim()
         }
 
         console.log(newUser);

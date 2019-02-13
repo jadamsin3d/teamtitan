@@ -1,6 +1,7 @@
-var bcrypt = require("bcryptjs");
+// var bcrypt = require("bcryptjs");
 
 module.exports = function (sequelize, DataTypes) {
+  
   var authTable = sequelize.define("authTable", {
     username: {
       type: DataTypes.STRING,
@@ -24,19 +25,23 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       }
     }
-  },
-    {
-      hooks: {
-        beforeCreate: async function (authTable) {
-          var salt = await bcrypt.genSaltSync();
-          authTable.password = bcrypt.hashSync(authTable.password, salt);
-        }
-      }
-    });
+  });
+    // {
+    //   hooks: {
+    //     beforeCreate: async function (authTable) {
+    //       var salt = await bcrypt.genSaltSync();
+    //       authTable.password = bcrypt.hashSync(authTable.password, salt);
+    //     }
+    //   }
+  // );
 
-authTable.prototype.validPassword = async function(password) {
-    return await bcrypt.compare(password, this.password);
-}
+  // authTable.prototype.validPassword = async function (password) {
+  //   return await bcrypt.compare(password, this.password);
+  // }
 
   return authTable;
-}
+};
+
+
+
+
