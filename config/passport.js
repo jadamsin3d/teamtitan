@@ -1,96 +1,46 @@
-var db = require('../models');
 var LocalStrategy = require('passport-local').Strategy;
-var bcrypt = require('bcryptjs');
 var passport = require('passport');
 
+var db = require('../models');
 
-// Load User model
-var User = authTable;
-
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-        done(err, user);
-    });
-});
- 
-//local signup
-passport.use('local-signup', new LocalStrategy(
+passport.use(new LocalStrategy(
+    // Our user will sign in using an email, rather than a "username"
     {
-         usernameField: 'email',
-         passwordField: 'password',
-         passReqToCallback: true
+        usernameField: "email"
     },
-
-    function(req, email, password, done)
-        
-        var generateHash = function(password) {
-            return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-        };
-
-        user.findOne({where: {email:email}}).then(function(user) {
-            if(user) {
-                return done(null, false, {message: 'That email is already taken'})
+    function (email, password, done) {
+        // When a user tries to sign in this code runs
+        db.authTable.findOne({
+            where: {
+                email: email
             }
-
-            else {
-                var userPassword = generateHash(password);
-                var data = 
-                    {
-                       email: email,
-                       password: userPassword,
-                       username: req.body.username
-                    }
-            };
-
-            User.create(data).then(function(newUser, created) {
-                if(!newUser) {
-                    return done(null, false);
-                }
-
-                if(newUser) {
-                    return done(null, newUser);
-                }
-           });
-        });
-    
-    }
-));
-
-//local signin
-passport.use("local-signin", new LocalStrategy(
-    {
-        usernameField: 'email',
-        passwordField: 'password',
-        passReqToCallback: true
-    },
-
-    function(req, email, password, done) {
-        var User = authTable;
-
-        var isValidPassword = function(userpass, password) {
-            return bcrypt.compareSync(password, userpass);
-        }
-
-        User.findOne({where: {email: email}}).then(function (user) {
-            if(!user) {
-                return done(null, false, {message: 'Email does not exist'})
+        }).then(function (dbUser) {
+            // If there's no user with the given email
+            if (!dbUser) {
+                return done(null, false, {
+                    message: "Incorrect email."
+                });
             }
-            if(!notValidPassword(user.password, password)) {
-                return done(null, false, { message: 'incorrect password.'});
+            // If there is a user with the given email, but the password the user gives us is incorrect
+            else if (!dbUser.validPassword(password)) {
+                return done(null, false, {
+                    message: "Incorrect password."
+                });
             }
-
-            var userinfo = user.get();
-
-            return done(null, userinfo);
-        }).catch(function(err) {
-            console.log('Error', err);
-
-            return done(null, false, {message: 'Something went wrong with your Signin'});
+            // If none of the above, return the user
+            return done(null, dbUser);
         });
     }
 ));
+
+passport.serializeUser(function (user, cb) {
+    cb(null, user);
+});
+
+passport.deserializeUser(function (obj, cb) {
+    cb(null, obj);
+});
+
+// Exporting our configured passport
+module.exports = passport;
 

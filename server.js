@@ -1,15 +1,13 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-var passport = require("passport");
 var session = require('express-session');
+var passport = require("passport");
 
-require('./config/passport')(passport);
-
+var PORT = process.env.PORT || 3000;
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));

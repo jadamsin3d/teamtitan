@@ -1,43 +1,42 @@
-$(document).ready(function() {
+$(document).ready(function () {
+    var usernameInput = $(".usernameInput")
+    var emailInput = $(".emailInput");
+    var passwordInput = $(".passwordInput");
 
-    var username = $("#formGroupExampleInput");
-    var email = $("#exampleInputEmail1");
-    var password = $("#exampleInputPassword1");
-
-    $(".authSubmit").on("click", function handleFormSubmit(event) {
+    // When the signup button is clicked, we validate the email and password are not blank
+    $(".authSubmit").on("click", function (event) {
         event.preventDefault();
-        if(!userName.val()) {
-            alert("Please enter a username.")
+        var userData = {
+            username: usernameInput.val().trim(),
+            email: emailInput.val().trim(),
+            password: passwordInput.val().trim()
+        };
+
+        if (!userData.email || !userData.password) {
             return;
         }
-        if(!userPassword.val()) {
-            alert("Please enter a password")
-            return;
-        }
-        if(!userEmail.val()) {
-            alert("Please enter an email")
-            return;
-        }
-        
-        var newUser = {
-            username: username.val().trim(),
-            password: password.val().trim(),
-            email: email.val().trim()
-        }
+        // If we have an email and password, run the signUpUser function
+        signUpUser(userData.username, userData.email, userData.password);
+        usernameInput.val("");
+        emailInput.val("");
+        passwordInput.val("");
+    });
 
-        console.log(newUser);
+    // Does a post to the signup route. If successful, we are redirected to the members page
+    // Otherwise we log any errors
+    function signUpUser(username, email, password) {
+        $.post("/api/signup", {
+            username: username,
+            email: email,
+            password: password
+        }).then(function (data) {
+            window.location.replace(data);
+            // If there's an error, handle it by throwing up a bootstrap alert
+        }).catch(handleLoginErr);
+    }
 
-        submitUser(newUser);
-    })
-
-    function submitUser(User) {
-        console.log("This is the submitUser function");
-        $.post("/api/postuser", User, function() {
-            console.log("posting...")
-        }).then(function() {
-        console.log("Submituser worked")
-        window.location.href = "/";
-        })
-    };
+    function handleLoginErr(err) {
+        $("#alert .msg").text(err.responseJSON);
+        $("#alert").fadeIn(500);
+    }
 });
-
