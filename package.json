@@ -15,12 +15,18 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "fs": "0.0.1-security",
+    "jquery": "^3.1.1",
     "mysql2": "^1.6.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^4.41.2"
+    "path": "^0.12.7",
+    "sequelize": "^4.41.2",
+    "server": "^1.0.18",
+    "socket.io": "^1.7.4"
   },
   "devDependencies": {
+    "fs": "0.0.1-security",
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
     "cross-env": "^5.2.0",
@@ -28,7 +34,9 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
-    "prettier": "^1.13.7"
+    "prettier": "^1.13.7",
+    "socket.io": "^1.7.4",
+    "jquery": "^3.1.1"
   },
   "directories": {
     "test": "test"

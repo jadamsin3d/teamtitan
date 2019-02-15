@@ -1,0 +1,73 @@
+<div class="container">
+
+			<!-- login page -->
+
+				<div class="logIn">
+						<h1>Tic - Tac - Toe</h1>
+						<input type="text" name="name" id="userName" placeholder="user name" required><br>
+						<input type="password" name="room" id="pass" placeholder="password" disabled><br>
+						<button id="logIn">logIn</button><button id="createacc" disabled>Create account</button>
+					</div>
+            <!-- creat/join page -->
+			<div class="menu"   style="display: none;">
+				<h1>Tic - Tac - Toe</h1>
+				<h2 id="userHello"></h2>				
+				<button id="new">Create Game</button>
+				<br><br>
+				<ul id="test"></ul>
+				<select class="chosen-select" id="listOfTornaments" required>
+					<option value=""></option>					
+				  </select>
+
+				<!-- <input type="text" name="room" id="room" placeholder="Enter Game ID" required> -->
+				<button id="join">Join Game</button>
+			</div>
+			<!-- each tornament has its own page  -->
+           <div id="eachTornamentPage"  style="display: none;">
+				<h4>Wel come To</h4>
+				<h4>Tic - Tac - Toe</h4>
+				<h4> Tournament</h4>
+				<h4 id="tornamentName" class="bg-primary my-5 text-white"></h4>
+			<div class="row">
+            <div id="playersDiv" class="col-md-6 bg-info">
+					<!-- <ol id="playersList"></ol> -->
+			</div>
+			
+			<div id="userDiv"> 
+				</div>
+					<!-- <ol id="playersList"></ol> -->
+			
+			<div id="braket" class="col-md-6">
+				<h6 id="bracketOne" class="bg-info mt-5 text-white"></h6><br>
+				<h6 id="bracketTwo" class="bg-info text-white"></h6>
+			</div>
+		</div>
+			<button id="makeBracket" >Bracket</button>
+			<button id="startTournament" >Start The Tournament</button>
+
+		 
+
+		</div>	
+          <!-- game board page -->
+			<div class="gameBoard" style="display: none;">
+				<h6 id="user"></h6>
+				<h3 id="turn"></h3>
+				<table class="center">
+					<tr>
+						<td><button class="tile" id="button_00"></button></td>
+						<td><button class="tile" id="button_01"></button></td>
+						<td><button class="tile" id="button_02"></button></td>
+					</tr>
+					<tr>
+						<td><button class="tile" id="button_10"></button></td>
+						<td><button class="tile" id="button_11"></button></td>
+						<td><button class="tile" id="button_12"></button></td>
+					</tr>
+					<tr>
+						<td><button class="tile" id="button_20"></button></td>
+						<td><button class="tile" id="button_21"></button></td>
+						<td><button class="tile" id="button_22"></button></td>
+					</tr>
+				</table>
+			</div>
+		</div>

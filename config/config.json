@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "Progress_19",
     "database": "userdb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "password",
+    "password": "Progress_19",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",

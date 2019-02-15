@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  {{!-- <script src="https://code.jquery.com/jquery.js"></script> --}}
+  {{!-- <script src="node_modules/jquery/dist/jquery.min.js"></script> --}}
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <title>Home Page</title>
 </head>
@@ -18,7 +20,7 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item strike">
-          <a class="nav-link" href="#">Host a Tournament</a>
+          <a class="nav-link" href="#" id='host'>Host a Tournament</a>
         </li>
         <li class="nav-link"> | </li>
         <li class="nav-item strike">
@@ -36,7 +38,8 @@
   </nav>
 
   {{{body}}}
-  
+  {{!-- <script src="/socket.io/socket.io.js"></script> --}}
+  {{!-- <script src="../tournament.js"></script> --}}
 </body>
 
 </html>
