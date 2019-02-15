@@ -1,56 +1,49 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // find all users
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    res.json("/dashboard");
+  app.post("/api/login", passport.authenticate("local"), function (req, res) {
+    res.json("/dashboard")
   });
 
-  app.get("/api/postuser", function(req, res) {
-    db.authTable.findAll({}).then(function(results) {
+  app.get("/api/postuser", function (req, res) {
+    db.authTable.findAll({}).then(function (results) {
       res.json(results);
     });
   });
 
-  app.post("/api/postuser", function(req, res) {
+  app.post("/api/postuser", function (req, res) {
     console.log("Attempting to create");
     db.authTable.create({
       username: req.body.username,
       password: req.body.password,
       email: req.body.email
     })
-      .then(function() {
+      .then(function () {
         console.log("complete");
         window.location.href = "/";
-        // res.redirect(307, "api/login");
-      }).catch(function(err) {
+        res.redirect(307, "api/login");
+      }).catch(function (err) {
         console.log(err);
         res.json(err);
       });
   });
 
-  app.get("/logout", function(req, res) {
+  app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
   });
 
-  app.get("/api/user_data", function(req, res) {
-    if (!req.user) {
+  app.get("/api/user_data", function (req, res) {
+    if (!req.authTable) {
       res.json({});
     }
     else {
       res.json({
-        email: req.user.email,
-        id: req.user.id
+        email: req.authTable.email,
+        id: req.authTable.id
       });
     }
   });
-
-  app.get("/api/login", function(req, res) {
-    db.authTable.findOne({}).then(function(results) {
-      res.json(results);
-    });
-  });
-
 };

@@ -27,7 +27,7 @@ $(document).ready(function () {
         $.post("/api/login", {
             email: email,
             password: password
-        }).then(function () {
+        }).then(function (data) {
             console.log("is this happening?")
             window.location.href = "/dashboard"
         }).catch(function (err) {
