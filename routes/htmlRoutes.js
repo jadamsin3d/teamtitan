@@ -8,18 +8,22 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/dashboard");
     }
-    res.sendFile(path.join(__dirname, "../views/auth.handlebars"));
+    res.render(path.join(__dirname, "../views/index.handlebars"));
   });
 
-  app.get("/index", function(req, res) {
-    if (req.user) {
-      res.redirect("/dashboard");
-    }
-    res.sendFile(path.join(__dirname, "../public/index.handlebars"));
-  });
+  // app.get("/auth", function(req, res) {
+  //   if (req.user) {
+  //     res.redirect("/dashboard");
+  //   }
+  //   res.render(path.join(__dirname, "../views/index.handlebars"));
+  // });
+
+  app.get("/auth", function(req, res) {
+    res.render("auth");
+  })
 
   app.get("/dashboard", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../views/dashboard.handlebars"));
+    res.render(path.join(__dirname, "../views/dashboard.handlebars"));
   });
 };
 
