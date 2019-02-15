@@ -12,6 +12,7 @@ $(document).ready(function () {
         };
 
         if (!userData.email || !userData.password) {
+            alert("Email or Password is incorrect");
             return;
         }
 
@@ -26,12 +27,18 @@ $(document).ready(function () {
         $.post("/api/login", {
             email: email,
             password: password
-        }).then(function (data) {
-            window.location.replace(data);
-            // If there's an error, log the error
+        }).then(function () {
+            console.log("is this happening?")
+            window.location.href = "/dashboard"
         }).catch(function (err) {
             console.log(err);
         });
     }
+
+    $('.btnRegister').click(function() {
+        event.preventDefault();
+        console.log('register clicked');
+        window.location.href = "/auth";
+    });
 
 });

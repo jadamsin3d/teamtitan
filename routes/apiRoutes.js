@@ -4,7 +4,7 @@ var passport = require("../config/passport");
 module.exports = function(app) {
   // find all users
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    res.json("/members");
+    res.json("/dashboard");
   });
 
   app.get("/api/postuser", function(req, res) {
@@ -14,7 +14,6 @@ module.exports = function(app) {
   });
 
   app.post("/api/postuser", function(req, res) {
-    // post a user
     console.log("Attempting to create");
     db.authTable.create({
       username: req.body.username,
@@ -22,7 +21,9 @@ module.exports = function(app) {
       email: req.body.email
     })
       .then(function() {
-        res.redirect(307, "api/login");
+        console.log("complete");
+        window.location.href = "/";
+        // res.redirect(307, "api/login");
       }).catch(function(err) {
         console.log(err);
         res.json(err);
@@ -46,5 +47,10 @@ module.exports = function(app) {
     }
   });
 
+  app.get("/api/login", function(req, res) {
+    db.authTable.findOne({}).then(function(results) {
+      res.json(results);
+    });
+  });
 
 };
