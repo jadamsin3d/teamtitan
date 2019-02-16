@@ -3,8 +3,11 @@ var passport = require("../config/passport");
 
 module.exports = function (app) {
   // find all users
-  app.post("/api/login", passport.authenticate("local"), function (req, res) {
-    res.json("/dashboard")
+  app.post("/api/login", 
+  passport.authenticate("local", { failureRedirect: '/' }),
+  function (req, res) {
+    console.log("hello");
+    res.redirect("/dashboard")
   });
 
   app.get("/api/postuser", function (req, res) {

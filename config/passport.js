@@ -1,15 +1,16 @@
 var passport = require('passport');
 var db = require('../models');
 
-module.exports = function (passport, user) {
+// module.exports = function (passport, user) {
     var LocalStrategy = require('passport-local').Strategy;
 
     passport.use(new LocalStrategy(
         // Our user will sign in using an email, rather than a "username"
-        {
-            usernameField: "email"
-        },
+        // {
+        //     usernameField: "email"
+        // },
         function (email, password, done) {
+            console.log("Validating User", email, password);
             // When a user tries to sign in this code runs
             db.authTable.findOne({
                 where: {
@@ -41,6 +42,6 @@ module.exports = function (passport, user) {
     passport.deserializeUser(function (obj, cb) {
         cb(null, obj);
     });
-}
+// }
 
 module.exports = passport;

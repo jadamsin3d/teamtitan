@@ -18,8 +18,10 @@ module.exports = function (app) {
     res.render(path.join(__dirname, "../views/auth.handlebars"));
   })
 
-  app.get("/dashboard", isAuthenticated, function(req, res) {
-    res.render(path.join(__dirname, "../views/dashboard.handlebars"));
+  app.get("/dashboard", 
+  isAuthenticated, 
+  function(req, res) {
+    res.render("dashboard");
   });
 };
 

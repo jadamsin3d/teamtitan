@@ -32,6 +32,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
+app.use(function(req, res, next) {
+  console.log(req.url);
+  next();
+})
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
