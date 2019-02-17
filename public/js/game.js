@@ -121,8 +121,8 @@ function sandwichWithSpinners(elementId, sandwichText){
 	var waitSpinner1 = document.createElement("i")
 	var waitSpinner2 = document.createElement("i")
 	
-	waitSpinner1.setAttribute("class", "waitSpinner fa fa-spinner text-info")
-	waitSpinner2.setAttribute("class", "waitSpinner fa fa-spinner text-info")	
+	waitSpinner1.setAttribute("class", "waitSpinner fa fa-spinner")
+	waitSpinner2.setAttribute("class", "waitSpinner fa fa-spinner")	
 	var waitText = document.createTextNode(sandwichText)
 
 	document.getElementById(elementId).innerHTML = ""	

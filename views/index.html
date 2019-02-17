@@ -1,56 +1,119 @@
-
 <!DOCTYPE html>
 <html>
-
 <head>
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
-  <title>Home Page</title>
+	<title>oXo</title>
+	<!-- =======================New=========================== -->
+	<link rel='stylesheet' type='text/css' href='/css/bootstrap.min.css'>
+	<link rel='stylesheet' type='text/css' href='/css/linea.css'>
+	<link rel='stylesheet' type='text/css' href='/css/ionicons.min.css'>
+	<link rel='stylesheet' type='text/css' href='/css/owl.carousel.css'>
+	<link rel='stylesheet' type='text/css' href='/css/magnific-popup.css'>	
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-5">
-    <a class="navbar-brand" href="#">X O X Toe-nament</a>
+	<!-- =======================New=========================== -->
+	<div id='preloader'>
+		<div class='loader'></div>
+		<div class='left'></div>
+		<div class='right'></div>
+	</div>
+
+	<div class='main-content'>
+		
+		<div class='page-border border-left'></div>
+		<div class='page-border border-right'></div>
+		<div class='page-border border-top'></div>
+		<div class='page-border border-bottom'></div>
+	
+		<a href='#' class='menu-btn'>
+			<span class='lines'>
+				<span class='l1'></span>
+				<span class='l2'></span>
+				<span class='l3'></span>
+			</span>
+		</a>
+
+		<div class='menu'>
+			<div class='inner'>
+				<ul class='menu-items'>
+					<li><a href='#' class='section-toggle'>Home</a></li>
+					<li><a href='Tournament/?hostOrjoin' class='section-toggle'>Create Tournament</a></li>
+					<li><a href='Tournament/?hostOrjoin' class='section-toggle'>Join Tournament</a></li>
+					<li><a href='join/?joinPrivate' class='section-toggle'>Join A Game</a></li>
+					<li><a href='game/?random' class='section-toggle'>Play Random</a></li>
+					<li><a href='game/?createPrivate' class='section-toggle'>Create A Game</a></li>
+					<li><a href='#' class='section-toggle'>Player Rankings</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class='animation-block'></div>
+
+		<div class='sections'>
+			<section id='intro' class='section section-main active'>
+				<div class='container-fluid'>
+					<div class='v-align'>
+						<div class='inner'>
+							<div class='intro-text'>
+								<h1> | oXo | </h1>
+								<p>\=====================/</p>
+								<div class='intro-btns'>
+									<a href='' class='btn-custom section-toggle' data-section='about'>Sign Up</a>
+									<a href='game/?random' class='btn-custom section-toggle' data-section='about'>Quick Game</a>
+									<a href='Tournament/?hostOrjoin' class='btn-custom section-toggle' data-section='contact'>Start Tournament</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+	<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" href="#">Tic Tac Toe-nament</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav">
-						
-						<li class="nav-link"> | </li>
 						<li class="nav-item strike">
-							<a class="nav-link" href="join/?joinPrivate">Join a Game<i class="fa fa-user-plus" aria-hidden="true"></i></a>
+							<a class="nav-link " href="Tournament/?hostOrjoin">Host a Tournament</a>
 						</li>
 						<li class="nav-link"> | </li>
 						<li class="nav-item strike">
-							<a class="nav-link" href="game/?random">Play Random <i class="startChoice fa fa-random" aria-hidden="true"></i></i></a>
+							<a class="nav-link" href="Tournament/?hostOrjoin">Join a Tournament</a>
 						</li>
 						<li class="nav-link"> | </li>
 						<li class="nav-item strike">
-							<a class="nav-link" href="game/?createPrivate">Create a Game<i class="fa fa-user-secret" aria-hidden="true"></i></a>
+							<a class="nav-link" href="join/?joinPrivate">Join a game<i class="fa fa-user-plus" aria-hidden="true"></i></a>
 						</li>
+						<li class="nav-link"> | </li>
 						<li class="nav-item strike">
-								<a class="nav-link " href="Tournament/?hostOrjoin">Host a Tournament</a>
-							</li>
-							<li class="nav-link"> | </li>
-							<li class="nav-item strike">
-								<a class="nav-link" href="Tournament/?hostOrjoin">Join a Tournament</a>
-							</li>
+							<a class="nav-link" href="game/?random">play Random <i class="startChoice fa fa-random" aria-hidden="true"></i></i></a>
+						</li>
+						<li class="nav-link"> | </li>
+						<li class="nav-item strike">
+							<a class="nav-link" href="game/?createPrivate">create a Game<i class="fa fa-user-secret" aria-hidden="true"></i></a>
+						</li>
 						<li class="nav-link"> | </li>
 						<li class="nav-item strike">
 							<a class="nav-link" href="#">Rankings</a>
 						</li>
 						</ul>				
-					</nav>
+					</nav> -->
 				 
-				<div class="container loginForm mt-5 text-muted">
-			<div class="row ">
-				<div class="col-md-6 border">
+				<!-- <form class="container loginForm">
+			<div class="row">
+				<div class="col-sm-4">
 					<form>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Username or Email address</label>
@@ -59,20 +122,25 @@
 						<div class="form-group">
 							<label for="exampleInputPassword1">Password</label>
 							<input type="password" class="form-control" id="loginPassword" placeholder="Password">
-						</div> 
-		             <div>
-						<button type="submit" class="btn btn-primary mr-5 mb-2">Log-In</button>
-						<button type="submit" class="btn btn-primary mb-2" id ="register">Register</button>
-					</div>
+						</div>
+		
+						<button type="submit" class="btn btn-primary">Log-In</button>
+						<button type="submit" class="btn btn-primary" id ="register">Register</button>
+		
 					</form>
 			</div>
-			<div class="col-md-6"> <h4 class="navbar-text">
+			<div class="col-sm-8"> <h4 class="navbar-text">
 					Become the Champion!
 			</h4></div>
 			</div>
-				</div>
-  
-  
+		</form> -->
+		</div>
+	</div>
+	<script src='js/jquery.min.js'></script>
+	<script src='js/jquery.shuffle.min.js'></script>
+	<script src='js/owl.carousel.min.js'></script>
+	<script src='js/jquery.magnific-popup.min.js'></script>
+	<script src='js/validator.min.js'></script>
+	<script src='js/script.js'></script>
 </body>
-
 </html>

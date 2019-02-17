@@ -15,6 +15,7 @@ io.set('heartbeat interval', 1000);
 io.set('heartbeat timeout', 5000);
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'views')));
 app.use(bodyParser.urlencoded({
 	extended: true
 }))

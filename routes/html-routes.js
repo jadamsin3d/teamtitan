@@ -15,7 +15,6 @@ module.exports = function(app) {
         res.sendFile(__dirname + '../views/game.html')
     })
     
-    
     app.get('/', function(req, res){
         res.sendFile(__dirname + '../views/index.html')
     })
