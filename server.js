@@ -48,10 +48,15 @@ app.get('/game', function(req, res){
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/views/index.html')
 })
-app.get('/Tournament', function(req, res){
+app.get('/loginForm', function(req, res){
 	gameQuery = req.query
 	getGameType(gameQuery)
-	res.sendFile(__dirname + '/views/Tournament.html')
+	res.sendFile(__dirname + '/views/loginForm.html')
+})
+app.get('/registrationForm', function(req, res){
+	gameQuery = req.query
+	getGameType(gameQuery)
+	res.sendFile(__dirname + '/views/registrationForm.html')
 })
 
 function getRandomInt(min, max){
