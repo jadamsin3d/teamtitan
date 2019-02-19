@@ -1,4 +1,4 @@
-//last Saved
+
 
 var express = require('express')
 var app = express()
@@ -8,6 +8,7 @@ var path = require('path')
 var http = require('http').Server(app)
 var io = require('socket.io')(http)
 
+//var db = require("./model");
 //This fixed the issue with long disconnecting times in browsers
 //The interval checks if player is connected every 1 seconds
 //If the player is disconnected for 5 second, they get booted
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }))
 app.use(bodyParser.json())
-
+require("./routes/authentication.js")(app);
 
 //There are 5 game type options
 //-random					   
@@ -318,6 +319,12 @@ http.listen(PORT, function(){
 	console.log("App listening on PORT " + PORT);
 	console.log("GO TO:localhost:8080")
 })
+
+// db.sequelize.sync().then(function() {
+// 	http.listen(PORT, function() {
+// 	  console.log("App listening on PORT " + PORT);
+// 	});
+//   });
 
 
 

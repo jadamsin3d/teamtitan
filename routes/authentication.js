@@ -1,24 +1,24 @@
-var db = require("../models");
+var db = require("../model");
 var passport = require("../config/passport");
 
 module.exports = function (app) {
-  // find all users
+  
   app.post("/api/login", 
   passport.authenticate("local", { failureRedirect: '/' }),
   function (req, res) {
     console.log("hello");
-    res.redirect("/dashboard")
+    res.redirect("/Tournament")
   });
 
-  app.get("/api/postuser", function (req, res) {
-    db.authTable.findAll({}).then(function (results) {
-      res.json(results);
-    });
-  });
-
+  // app.get("/api/postuser", function (req, res) {
+  //   db.authTable.findAll({}).then(function (results) {
+  //     res.json(results);
+  //   });
+  // });
+//registration
   app.post("/api/postuser", function (req, res) {
     console.log("Attempting to create");
-    db.authTable.create({
+    db.userTable.create({
       username: req.body.username,
       password: req.body.password,
       email: req.body.email
@@ -38,15 +38,15 @@ module.exports = function (app) {
     res.redirect("/");
   });
 
-  app.get("/api/user_data", function (req, res) {
-    if (!req.authTable) {
-      res.json({});
-    }
-    else {
-      res.json({
-        email: req.authTable.email,
-        id: req.authTable.id
-      });
-    }
-  });
+  // app.get("/api/user_data", function (req, res) {
+  //   if (!req.authTable) {
+  //     res.json({});
+  //   }
+  //   else {
+  //     res.json({
+  //       email: req.authTable.email,
+  //       id: req.authTable.id
+  //     });
+  //   }
+  // });
 };
