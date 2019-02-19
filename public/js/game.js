@@ -7,11 +7,11 @@ canPlay = false;
 //fastclick.js initializer.			   	
 //This removes delay for mobile button tap//
 
-if ('addEventListener' in document) {
-    document.addEventListener('DOMContentLoaded', function() {
-        FastClick.attach(document.body);
-    }, false);
-}
+// if ('addEventListener' in document) {
+//     document.addEventListener('DOMContentLoaded', function() {
+//         FastClick.attach(document.body);
+//     }, false);
+// }
 
 function refreshPage(){
 	location.reload()

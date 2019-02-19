@@ -1,111 +1,108 @@
 <html>
-    <head>
-			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-       
-		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	 crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	 crossorigin="anonymous"></script>
+
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
-  <title>O X O</title>
-    </head>
-    <body>
-			
-		<!-- main game and searching opponent page included here -->
-		<!-- start here -->
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-5">
-				<a class="navbar-brand" href="#">O X O Toe-nament</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-				  aria-expanded="false" aria-label="Toggle navigation">
-				  <span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarText">
-							<ul class="navbar-nav">
-									<li class="nav-item strike">
-										<a class="nav-link " href="/">Home</a>
-									</li>
-												
-								</nav>
-		
-		<div id = "gameContainer">
-				
-				<div id = "gameInfo">
-						<div id = "player" class="text-muted"></div>
-						<div id = "gameState" class="text-muted"></div>
-						<div id = "turn" class="text-muted"></div>
-					</div>
-					<table class = "table-bordered" id = "scoreBoard">
-						<tr>
-							<td id = "XTag" class = "score">X</td>
-							<td id = "tieTag" class = "score">Tie</td>
-							<td id = "OTag" class = "score">O</td>
-						</tr>
-						<tr>
-							<td class = "score" id = "XScore">0</td>
-							<td class = "score" id = "tieScore">0</td>
-							<td class = "score" id = "OScore">0</td>
-						</tr>
-					</table>
-			<table class = "table-bordered" id = "TicTacToeBoard">
-				<tr>
-					<td onclick = "boxClick(this)" class = "box" id = "1"></td>
-					<td onclick = "boxClick(this)" class = "box" id = "2"></td>
-					<td onclick = "boxClick(this)" class = "box" id = "3"></td>
-				</tr>
-				<tr>
-					<td onclick = "boxClick(this)" class = "box" id = "4"></td>
-					<td onclick = "boxClick(this)" class = "box" id = "5"></td>
-					<td onclick = "boxClick(this)" class = "box" id = "6"></td>
-				</tr>
-				<tr>
-					<td onclick = "boxClick(this)" class = "box" id = "7"></td>
-					<td onclick = "boxClick(this)" class = "box" id = "8"></td>
-					<td onclick = "boxClick(this)" class = "box" id = "9"></td>
-				</tr>
-			</table>
-			
-			<!-- <form action = "/">
-				<button class = "menuBtn btn btn-info" type = "submit">
-					Menu
-				</button>
-			</form> -->
-		</div>
-		<!-- end here -->
+	<title>O X O</title>
+</head>
 
-                  <!-- searching player -->
-		<div id = "loadingContainer">
-				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-						<a class="navbar-brand" href="#">O X O Toe-nament</a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-						  aria-expanded="false" aria-label="Toggle navigation">
-						  <span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse" id="navbarText">
-									<ul class="navbar-nav">
-											<li class="nav-item strike">
-												<a class="nav-link " href="/">Home</a>
-											</li>
-														
-										</nav>
-			<div id = "searchingContainer">
-				<div id = "searchingText">
-					<div id = "roomId"></div>
-						<div id = "searchState">Searching for Opponent..</div>
-						<div id = "searching"></div>					
-				</div>
-				
+<body>
+
+	<!-- main game and searching opponent page included here -->
+	<!-- start here -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-5">
+		<a class="navbar-brand" href="#">O X O Toe-nament</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+		 aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav">
+				<li class="nav-item strike">
+					<a class="nav-link " href="/">Home</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div  id="gameContainer">
+
+		<div id="gameInfo">
+			<div id="player" class="text-muted"></div>
+			<div id="gameState" class="text-muted"></div>
+			<div id="turn" class="text-muted"></div>
+		</div>
+		<table class="table-bordered" id="scoreBoard">
+			<tr>
+				<td id="XTag" class="score">X</td>
+				<td id="tieTag" class="score">Tie</td>
+				<td id="OTag" class="score">O</td>
+			</tr>
+			<tr>
+				<td class="score" id="XScore">0</td>
+				<td class="score" id="tieScore">0</td>
+				<td class="score" id="OScore">0</td>
+			</tr>
+		</table>
+		<table class="table-bordered" id="TicTacToeBoard">
+			<tr>
+				<td onclick="boxClick(this)" class="box" id="1"></td>
+				<td onclick="boxClick(this)" class="box" id="2"></td>
+				<td onclick="boxClick(this)" class="box" id="3"></td>
+			</tr>
+			<tr>
+				<td onclick="boxClick(this)" class="box" id="4"></td>
+				<td onclick="boxClick(this)" class="box" id="5"></td>
+				<td onclick="boxClick(this)" class="box" id="6"></td>
+			</tr>
+			<tr>
+				<td onclick="boxClick(this)" class="box" id="7"></td>
+				<td onclick="boxClick(this)" class="box" id="8"></td>
+				<td onclick="boxClick(this)" class="box" id="9"></td>
+			</tr>
+		</table>
+
+
+	</div>
+
+	<div  id="loadingContainer">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">O X O Toe-nament</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+			 aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav">
+					<li class="nav-item strike">
+						<a class="nav-link " href="/">Home</a>
+					</li>
+				</ul>
 			</div>
+		</nav>
+		<div id="searchingContainer">
+			<div id="searchingText">
+				<div id="roomId"></div>
+				<div id="searchState">Searching for Opponent..</div>
+				<div id="searching"></div>
+			</div>
+
 		</div>
-		<script src = "/js/fastclick.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
-        <script src = "/js/loading.js"></script>
-        <script src = "/js/game.js"></script>
-    </body>
+	</div>
+	<script src="/js/fastclick.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/loading.js"></script>
+	<script src="/js/game.js"></script>
+</body>
+
 </html>
-
-
-
-
-
