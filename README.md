@@ -1,4 +1,4 @@
-##OXO
+## OXO
 is a multiplayer game . From the main menu you can search for a random game or create a private game and invite a friend to join you.
 
 ## Technologies used
