@@ -35,29 +35,29 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <div class="container mt-1 bg-light" id="create-account-container">
-                    <form action="#">
+                    <form action="/api/postuser" method="POST">
                         <div class="form-group row">
                             <div class="col-sm-2"></div>
-                            <label for="entry-displayname" class="col-sm-2 col-form-label text-md-right mt-md-5">Display
+                            <label for="username" class="col-sm-2 col-form-label text-md-right mt-md-5">Display
                                 Name</label>
                             <div class="col-sm-8 ">
-                                <input type="text" class="form-control mt-md-5" id="entry-displayname" placeholder="Display Name">
+                                <input type="text" class="form-control mt-md-5" name="username" id="username" placeholder="Display Name">
                             </div>
                             <div class="col-sm-2 "></div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-2"></div>
-                            <label for="entry-email" class="col-sm-2 col-form-label text-md-right">Email</label>
+                            <label for="email" class="col-sm-2 col-form-label text-md-right">Email</label>
                             <div class="col-sm-8 ">
-                                <input type="email" class="form-control " id="entry-email" placeholder="Email">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                             </div>
                             <div class="col-sm-2 "></div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-2 "></div>
-                            <label for="entry-password" class="col-sm-2 col-form-label  text-md-right ">Password</label>
+                            <label for="password" class="col-sm-2 col-form-label  text-md-right ">Password</label>
                             <div class="col-sm-8 ">
-                                <input type="password" class="form-control mb-md-3" id="entry-password" placeholder="Password">
+                                <input type="password" class="form-control mb-md-3" name="password" id="password" placeholder="Password">
                             </div>
                             <div class="col-sm-2 "></div>
                         </div>

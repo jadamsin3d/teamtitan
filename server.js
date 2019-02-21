@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }))
 app.use(bodyParser.json())
+app.use(express.urlencoded());
  require("./routes/authentication.js")(app);
  
 
@@ -314,9 +315,8 @@ io.on('connection', function(socket){
 			    }
 	    	}
 	     })
-      })
-
-
+	  })
+	  
 db.sequelize.sync().then(function() {
 	http.listen(PORT, function() {
 	  console.log("App listening on PORT " + PORT);

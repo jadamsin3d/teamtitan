@@ -1,6 +1,7 @@
 var db = require("../model");
 var passport = require("passport");
 
+
 module.exports = function (app) {
   
   app.post("/api/login", 
@@ -17,7 +18,9 @@ module.exports = function (app) {
   // });
 //registration
   app.post("/api/postuser", function (req, res) {
+    console.log("==============================")
     console.log("Attempting to create");
+    console.log(req.body)
     db.userTable.create({
       username: req.body.username,
       password: req.body.password,
@@ -25,8 +28,8 @@ module.exports = function (app) {
     })
       .then(function () {
         console.log("complete");
-        window.location.href = "/";
-        res.redirect(307, "api/login");
+       // window.location.href = "/";
+        res.redirect("/loginForm");
       }).catch(function (err) {
         console.log(err);
         res.json(err);
