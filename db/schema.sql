@@ -1,1 +1,1 @@
- CREATE DATABASE user;
+ CREATE DATABASE userdb;

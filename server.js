@@ -15,6 +15,8 @@ var db = require("./model");
 io.set('heartbeat interval', 1000);
 io.set('heartbeat timeout', 5000);
 
+var  PORT = process.env.PORT || 8080;
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(bodyParser.urlencoded({
@@ -22,6 +24,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
  require("./routes/authentication.js")(app);
+ 
 
 //There are 5 game type options
 //-random					   
@@ -313,21 +316,19 @@ io.on('connection', function(socket){
 	     })
       })
 
-var  PORT = process.env.PORT || 8080;
 
-http.listen(PORT, function(){
-	console.log("App listening on PORT " + PORT);
-	console.log("GO TO:localhost:8080")
-})
+db.sequelize.sync().then(function() {
+	http.listen(PORT, function() {
+	  console.log("App listening on PORT " + PORT);
+	});
+  });
 
 
 
-// db.sequelize.sync().then(function() {
-// 	http.listen(PORT, function() {
-// 	  console.log("App listening on PORT " + PORT);
-// 	});
-//   });
-
+// http.listen(PORT, function(){
+// 	console.log("App listening on PORT " + PORT);
+// 	console.log("GO TO:localhost:8080")
+// })
 
 
 

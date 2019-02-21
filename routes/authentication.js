@@ -15,8 +15,6 @@ module.exports = function (app) {
   //     res.json(results);
   //   });
   // });
-
-
 //registration
   app.post("/api/postuser", function (req, res) {
     console.log("Attempting to create");
