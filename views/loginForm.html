@@ -40,13 +40,13 @@
                     </div>
                 </div>
                 <div class="container mt-1 bg-light" id="login-account-container">
-                    <form action="#">
+                    <form action="/api/login" method="POST">
 
                         <div class="form-group row pt-3">
                             <div class="col-sm-2"></div>
                             <label for="entry-email" class="col-sm-2 col-form-label text-md-right">Email</label>
                             <div class="col-sm-8 ">
-                                <input type="email" class="form-control " id="entry-email" placeholder="Email">
+                                <input type="text" class="form-control " name="username" id="entry-email" placeholder="Email">
                             </div>
                             <div class="col-sm-2 "></div>
                         </div>
@@ -54,14 +54,15 @@
                             <div class="col-sm-2 "></div>
                             <label for="entry-password" class="col-sm-2 col-form-label  text-md-right ">Password</label>
                             <div class="col-sm-8 ">
-                                <input type="password" class="form-control mb-md-3" id="entry-password" placeholder="Password">
+                                <input type="password" name="password" class="form-control mb-md-3" id="entry-password" placeholder="Password">
                             </div>
                             <div class="col-sm-2 "></div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-4 bg-dark"></div>
                             <div class="col-sm-7 bg-dark">
-                                <a href='' class='btn-custom section-toggle my-2' data-section='sign in'>Sign in</a>
+                                <!-- <a href='' type="submit" class='btn-custom section-toggle my-2' data-section='sign in'>Sign in</a> -->
+                               <button type="submit">sign in</button>
                                 <!-- <form action="/registrationForm"> -->
                                 <a href='/registrationForm' class='btn-custom section-toggle my-2' data-section='sign up'>Sign
                                     Up</a>

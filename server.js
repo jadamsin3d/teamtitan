@@ -8,6 +8,8 @@ var path = require('path')
 var http = require('http').Server(app)
 var io = require('socket.io')(http)
 var db = require("./model");
+var passport = require("passport");
+var LocalStrategy = require('passport-local').Strategy;
 
 //This fixed the issue with long disconnecting times in browsers
 //The interval checks if player is connected every 1 seconds
@@ -24,7 +26,46 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 app.use(express.urlencoded());
+app.use(passport.initialize())
  require("./routes/authentication.js")(app);
+
+ passport.use(new LocalStrategy(
+	// Our user will sign in using an email, rather than a "username"
+	// {
+	//     usernameField: "email"
+	// },
+	function (email, password, done) {
+		console.log("Validating User", email, password);
+		// When a user tries to sign in this code runs
+		db.userTable.findOne({
+			where: {
+				email: email
+			}
+		}).then(function (dbUser) {
+			if (!dbUser) {
+				return done(null, false, {					
+				});				
+			}
+			//If there is a user with the given email, but the password the user gives us is incorrect
+			else if (!dbUser.validPassword(password)) {
+				return done(null, false, {
+				//	message: "Incorrect password."
+				});
+			}
+			// If none of the above, return the user
+			console.log(dbUser)
+			return done(null, dbUser);
+		});
+	}
+));
+
+passport.serializeUser(function (user, cb) {
+	cb(null, user);
+});
+
+passport.deserializeUser(function (obj, cb) {
+	cb(null, obj);
+});
  
 
 //There are 5 game type options

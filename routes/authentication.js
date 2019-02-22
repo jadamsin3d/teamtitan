@@ -5,11 +5,8 @@ var passport = require("passport");
 module.exports = function (app) {
   
   app.post("/api/login", 
-  passport.authenticate("local", { failureRedirect: '/' }),
-  function (req, res) {
-    console.log("hello");
-    res.redirect("/Tournament")
-  });
+  passport.authenticate("local", { failureRedirect: '/loginForm',successRedirect:'/Tournament.html' }));
+  
 
   // app.get("/api/postuser", function (req, res) {
   //   db.authTable.findAll({}).then(function (results) {
