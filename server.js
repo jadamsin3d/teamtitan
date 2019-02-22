@@ -1,4 +1,4 @@
-//last Saved
+
 
 var express = require('express')
 var app = express()
@@ -7,6 +7,7 @@ var fs = require('fs')
 var path = require('path')
 var http = require('http').Server(app)
 var io = require('socket.io')(http)
+var db = require("./model");
 
 //This fixed the issue with long disconnecting times in browsers
 //The interval checks if player is connected every 1 seconds
@@ -14,13 +15,17 @@ var io = require('socket.io')(http)
 io.set('heartbeat interval', 1000);
 io.set('heartbeat timeout', 5000);
 
+var  PORT = process.env.PORT || 8080;
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(bodyParser.urlencoded({
 	extended: true
 }))
 app.use(bodyParser.json())
-
+app.use(express.urlencoded());
+ require("./routes/authentication.js")(app);
+ 
 
 //There are 5 game type options
 //-random					   
@@ -31,7 +36,7 @@ app.use(bodyParser.json())
 
 var gameType;
 function getGameType(gameQuery){
-	console.log(gameQuery)
+	//console.log(gameQuery)
 	for (key in gameQuery){
 		gameType = key.toString()
 	}
@@ -310,15 +315,20 @@ io.on('connection', function(socket){
 			    }
 	    	}
 	     })
-      })
+	  })
+	  
+db.sequelize.sync().then(function() {
+	http.listen(PORT, function() {
+	  console.log("App listening on PORT " + PORT);
+	});
+  });
 
-var  PORT = process.env.PORT || 8080;
 
-http.listen(PORT, function(){
-	console.log("App listening on PORT " + PORT);
-	console.log("GO TO:localhost:8080")
-})
 
+// http.listen(PORT, function(){
+// 	console.log("App listening on PORT " + PORT);
+// 	console.log("GO TO:localhost:8080")
+// })
 
 
 
