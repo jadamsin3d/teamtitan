@@ -21,5 +21,5 @@ is a multiplayer game . From the main menu you can search for a random game or c
 * set your connection to match your Database in config.json
 * run npm install using the Command Prompt (Windows) / Terminal (Mac) to install the required packages  then visit http://localhost:8080/
 
-linke to heroku : https://guarded-retreat-45215.herokuapp.com/
+linke to heroku :  https://fierce-forest-51045.herokuapp.com/
 
