@@ -10,6 +10,7 @@ var io = require('socket.io')(http)
 var db = require("./model");
 var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
+var session=require('express-session')
 
 //This fixed the issue with long disconnecting times in browsers
 //The interval checks if player is connected every 1 seconds
@@ -27,8 +28,15 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 app.use(express.urlencoded());
 app.use(passport.initialize())
- require("./routes/authentication.js")(app);
+app.use(passport.session())
 
+app.use(session({
+	secret: 'keyboard cat',
+	resave: false,
+	saveUninitialized: false,
+	cookie: { secure: true }
+  }))
+ require("./routes/authentication.js")(app);
  passport.use(new LocalStrategy(
 	// Our user will sign in using an email, rather than a "username"
 	// {
@@ -59,13 +67,14 @@ app.use(passport.initialize())
 	}
 ));
 
-passport.serializeUser(function (user, cb) {
-	cb(null, user);
+passport.serializeUser(function (dbUser, cb) {
+	cb(null, dbUser);
 });
 
-passport.deserializeUser(function (obj, cb) {
-	cb(null, obj);
+passport.deserializeUser(function (dbUser, cb) {
+	cb(null,dbUser);
 });
+ 
  
 
 //There are 5 game type options
@@ -85,6 +94,7 @@ function getGameType(gameQuery){
 app.get('/join', function(req, res){
 	res.sendFile(__dirname + '/views/join.html')
 })
+
 app.get('/game', function(req, res){
 	gameQuery = req.query
 	getGameType(gameQuery)

@@ -2,7 +2,8 @@
 (function init() {
     
   //login clicked , modify it
-  $('#login').on('click', function()  {
+  $('#signup').on('click', function()  {
+    
     // userName = $('#userName').val();
     // if (!userName) {
     //   alert('Please enter your name.');
