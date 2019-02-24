@@ -36,8 +36,8 @@ module.exports = function (app) {
     })
       .then(function () {
         console.log("complete");
-       // window.location.href = "/";
-        res.redirect("/loginForm");
+       
+        res.redirect("/Tournament.html");
       }).catch(function (err) {
         console.log(err);
         res.json(err);
@@ -46,7 +46,6 @@ module.exports = function (app) {
 
   
   function authenticationMiddleware () {  
-    console.log("lllllllllllllllllllllllllllllllaaaaaaaaaa")
     return (req, res, next) => {
       console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
   
@@ -102,4 +101,6 @@ passport.deserializeUser(function (dbUser, cb) {
   //     });
   //   }
   // });
+  
+  
 };
