@@ -6,7 +6,9 @@
 	text-align: center;
 	font-weight: 900;
 }
-
+#torNav{
+	display: none;
+}
 #gameInfo{
 	margin: 20px;
 	text-align: center;
